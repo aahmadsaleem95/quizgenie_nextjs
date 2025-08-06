@@ -1,5 +1,6 @@
 import "./globals.css";
-
+import "react-toastify/dist/ReactToastify.css";
+import ToastProvider from "@/components/ToastProvider";
 import ClientLayout from "@/components/ClientLayout";
 
 export const metadata = {
@@ -12,6 +13,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
+        <ToastProvider />
         <ClientLayout>{children}</ClientLayout>
       </body>
     </html>

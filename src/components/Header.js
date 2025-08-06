@@ -5,6 +5,7 @@ import { LogoutOutlined, UserOutlined } from "@ant-design/icons";
 import { Badge, Avatar, Space, Typography, message } from "antd";
 import { useRouter } from "next/navigation";
 import Cookies from "js-cookie";
+import { toast } from "react-toastify";
 
 export const Header = () => {
   const [loginUser, setLoginUser] = useState(null);
@@ -24,7 +25,7 @@ export const Header = () => {
   const logoutHandler = () => {
     Cookies.remove("user"); // Remove the user cookie
     Cookies.remove("token"); // Also remove auth token cookie if you use it
-    message.success("Logout Successfully");
+    toast.success("Logout Successfully");
     router.push("/login");
   };
 

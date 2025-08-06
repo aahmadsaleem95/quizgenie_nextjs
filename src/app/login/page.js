@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Button, Checkbox, Form, Input, message } from "antd";
 import { useRouter } from "next/navigation";
 import axios from "axios";
+import { toast } from "react-toastify";
 
 export default function LoginPage() {
   const [loading, setLoading] = useState(false);
@@ -14,15 +15,11 @@ export default function LoginPage() {
   const submitHandler = async (values) => {
     try {
       setLoading(true);
-      const res = await axios.post("/api/auth/login", values, {
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
+      const res = await axios.post("/api/auth/login", values);
       if (res.status === 200) {
         const userData = res.data.user;
         setLoading(false);
-        message.success(res.data.message);
+        toast.success(res.data.message);
         localStorage.setItem(
           "user",
           JSON.stringify({
@@ -38,7 +35,7 @@ export default function LoginPage() {
       }
     } catch (error) {
       setLoading(false);
-      message.error("something went wrong");
+      toast.error("something went wrong");
     }
   };
 

@@ -1,5 +1,4 @@
 "use client";
-
 import { usePathname } from "next/navigation";
 import { Header } from "./Header";
 import { SideMenu } from "./SideMenu";
@@ -16,7 +15,7 @@ export default function ClientLayout({ children }) {
       <Header />
       <div className="SideMenuAndPageContent">
         <SideMenu />
-        <main style={{ flex: 1 }}>{children}</main>
+        <div className="PageContent">{children}</div>
       </div>
       <Footer />
     </div>
