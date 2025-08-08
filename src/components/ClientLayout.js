@@ -6,7 +6,7 @@ import { Footer } from "./Footer";
 
 export default function ClientLayout({ children }) {
   const pathname = usePathname();
-  const isLoginPage = pathname === "/login";
+  const isLoginPage = pathname === "/login" || pathname.includes("/quiz/");
 
   if (isLoginPage) return <>{children}</>;
 

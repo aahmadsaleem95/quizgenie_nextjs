@@ -24,7 +24,7 @@ export const Header = () => {
 
   const logoutHandler = () => {
     Cookies.remove("user"); // Remove the user cookie
-    Cookies.remove("token"); // Also remove auth token cookie if you use it
+    localStorage.removeItem("user");
     toast.success("Logout Successfully");
     router.push("/login");
   };

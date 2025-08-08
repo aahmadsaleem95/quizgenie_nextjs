@@ -9,7 +9,6 @@ import { toast } from "react-toastify";
 export default function LoginPage() {
   const [loading, setLoading] = useState(false);
   const router = useRouter();
-  console.log("Hello");
 
   //from submit
   const submitHandler = async (values) => {

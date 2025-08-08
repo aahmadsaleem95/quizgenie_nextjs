@@ -8,7 +8,6 @@ import { connectDB } from "@/lib/db";
 export async function POST(request) {
   await connectDB();
   const { username: email, password } = await request.json();
-  console.log("email");
   const user = await User.findOne({ email });
   if (!user || !(await user.isPasswordCorrect(password))) {
     return NextResponse.json(
@@ -16,13 +15,11 @@ export async function POST(request) {
       { status: 401 }
     );
   }
-  console.log("user: ", user);
 
   // Create JWT
   const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, {
     expiresIn: "7d",
   });
-  console.log("token: ", token);
 
   // Set cookie
   const _cookies = await cookies();

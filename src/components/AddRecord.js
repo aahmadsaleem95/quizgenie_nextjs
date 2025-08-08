@@ -161,7 +161,6 @@ export const AddRecord = ({
                       }}
                     >
                       {selectData.map((val, index) => {
-                        console.log(val);
                         return (
                           <Select.Option key={index} value={val.id}>
                             {`${val[selectTitle]}`}

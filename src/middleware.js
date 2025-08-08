@@ -15,7 +15,6 @@ async function verifyToken(token) {
 export async function middleware(request) {
   const { pathname } = request.nextUrl;
   const token = request.cookies.get("user")?.value;
-  console.log("token", token, "\npathname: ", pathname);
 
   // Allow access to public routes without token
   if (PUBLIC_ROUTES.includes(pathname)) {
@@ -28,9 +27,7 @@ export async function middleware(request) {
   }
 
   try {
-    console.log("JWT: ", process.env.JWT_SECRET);
     const decoded = await verifyToken(token);
-    console.log("decode: ", decoded);
     request.headers.set("x-user-id", decoded.id);
     return NextResponse.next({
       request: {

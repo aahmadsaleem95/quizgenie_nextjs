@@ -1,9 +1,8 @@
 "use client";
-import { Col, Row, Typography, Form, Select, DatePicker, Button } from "antd";
+import { Col, Row, Typography, Form, Button } from "antd";
 
 import { SearchOutlined } from "@ant-design/icons";
 export default function Home() {
-  const { RangePicker } = DatePicker;
   const [form] = Form.useForm();
   return (
     <>
@@ -19,10 +18,6 @@ export default function Home() {
             layout={"inline"}
             style={{ justifyContent: "space-evenly" }}
           >
-            <Form.Item name="date_range" label="Range Picker">
-              <RangePicker />
-            </Form.Item>
-
             <Form.Item>
               <Button type="primary" htmlType="submit">
                 <SearchOutlined></SearchOutlined>Search

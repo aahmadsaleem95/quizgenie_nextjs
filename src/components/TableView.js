@@ -35,7 +35,6 @@ export const TableView = ({
     if (relod) {
       setRelod(false);
     }
-    console.log("Row Data: ", columnsData, dataSource, rkey);
   }, [relod, dataSource]);
 
   const onDeleteRecord = (record) => {
